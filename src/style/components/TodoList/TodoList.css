@@ -1,1 +1,59 @@
-/*# sourceMappingURL=TodoList.css.map */
+.todo-list-wrapper {
+  width: 80%;
+}
+.todo-list-wrapper .todo-list-container {
+  border: 2px solid var(--lightGrey);
+  border-radius: 4px;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 2px solid var(--lightGrey);
+  padding: 0 32px 0 16px;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item:last-child {
+  border: none;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item {
+  display: flex;
+  align-items: center;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item .select-box {
+  cursor: pointer;
+  width: 6px;
+  height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 32px 0 0;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid var(--lightGrey);
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item .select-box svg {
+  display: none;
+  font-size: 14px;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item .select-box svg path {
+  fill: var(--white);
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item.selected .select-box {
+  width: 8px;
+  height: 8px;
+  border: none;
+  background-color: var(--lightBlue);
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item.selected .select-box svg {
+  display: flex;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .select-item.selected .text-item {
+  text-decoration: line-through;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .delete-item {
+  cursor: pointer;
+}
+.todo-list-wrapper .todo-list-container .todo-list-item .delete-item svg path {
+  fill: red;
+}/*# sourceMappingURL=TodoList.css.map */

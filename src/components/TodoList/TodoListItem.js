@@ -1,5 +1,58 @@
 import React from "react";
 
-export default function TodoListItem() {
-  return <div>TodoListItem</div>;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
+
+import {
+  useDeleteTodoMutation,
+  usePatchTodoMutation,
+} from "../../store/apis/TheTodoListApi";
+
+export default function TodoListItem({ data }) {
+  const [deleteRule] = useDeleteTodoMutation();
+  const [patchRule] = usePatchTodoMutation();
+
+  const handleDeleteTodo = (id) => {
+    if (id) {
+      deleteRule(id);
+    }
+  };
+
+  const handleUpdateTodo = () => {
+    let body = {
+      ...data,
+      status: data.status === "selected" ? "unselected" : "selected",
+    };
+    patchRule({ id: data.id, todo: body });
+  };
+
+  return (
+    <>
+      <div className="todo-list-item">
+        <div
+          className={`select-item ${
+            data.status === "selected" ? "selected" : ""
+          }`}
+        >
+          <div
+            className="select-box"
+            onClick={() => {
+              handleUpdateTodo();
+            }}
+          >
+            <FontAwesomeIcon icon={faCheck} />
+          </div>
+          <div className="text-item">{data.name}</div>
+        </div>
+        <div
+          className="delete-item"
+          onClick={() => {
+            handleDeleteTodo(data.id);
+          }}
+        >
+          <FontAwesomeIcon icon={faTrashCan} />
+        </div>
+      </div>
+    </>
+  );
 }

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-import { usePostTodoMutation } from "../../store/apis/TheTodoListApi";
+import {
+  theTodoListApi,
+  usePostTodoMutation,
+  useGetTheTodoListApiQuery,
+} from "../../store/apis/TheTodoListApi";
 
 export default function AddTodo() {
   const [postRule] = usePostTodoMutation();
+  const { refetch } = useGetTheTodoListApiQuery();
   const [inputValue, setInputValue] = useState("");
 
   const handleAddRule = () => {
@@ -13,7 +18,9 @@ export default function AddTodo() {
         name: inputValue,
         status: "unselect",
       };
-      postRule(body);
+      postRule(body)
+        .unwrap()
+        .then(() => refetch());
     }
   };
   return (

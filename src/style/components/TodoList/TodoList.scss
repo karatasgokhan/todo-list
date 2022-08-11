@@ -3,6 +3,13 @@
   .todo-list-container {
     border: 2px solid var(--lightGrey);
     border-radius: 4px;
+    .empty-list-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      font-size: 18px;
+    }
     .todo-list-item {
       display: flex;
       align-items: center;

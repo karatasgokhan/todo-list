@@ -1,24 +1,3 @@
 {
-  "todoListData": [
-    {
-      "id": 3,
-      "name": "Test 3",
-      "status": "unselected"
-    },
-    {
-      "id": 0.6426290632664133,
-      "name": "Ekledim",
-      "status": "selected"
-    },
-    {
-      "id": 0.8659015738761497,
-      "name": "asdsadasdsd",
-      "status": "unselect"
-    },
-    {
-      "id": 0.20534167006664994,
-      "name": "asdsa",
-      "status": "unselect"
-    }
-  ]
+  "todoListData": []
 }

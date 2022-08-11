@@ -6,15 +6,19 @@ import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
 import {
   useDeleteTodoMutation,
   usePatchTodoMutation,
+  useGetTheTodoListApiQuery,
 } from "../../store/apis/TheTodoListApi";
 
 export default function TodoListItem({ data }) {
   const [deleteRule] = useDeleteTodoMutation();
   const [patchRule] = usePatchTodoMutation();
+  const { refetch } = useGetTheTodoListApiQuery();
 
   const handleDeleteTodo = (id) => {
     if (id) {
-      deleteRule(id);
+      deleteRule(id)
+        .unwrap()
+        .then(() => refetch());
     }
   };
 
@@ -23,7 +27,9 @@ export default function TodoListItem({ data }) {
       ...data,
       status: data.status === "selected" ? "unselected" : "selected",
     };
-    patchRule({ id: data.id, todo: body });
+    patchRule({ id: data.id, todo: body })
+      .unwrap()
+      .then(() => refetch());
   };
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import {
-  theTodoListApi,
   usePostTodoMutation,
   useGetTheTodoListApiQuery,
 } from "../../store/apis/TheTodoListApi";

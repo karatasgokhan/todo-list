@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import TodoListItem from "../TodoList/TodoListItem";
 
@@ -7,10 +7,6 @@ import EmptyTodoList from "./EmptyTodoList";
 
 export default function TodoList() {
   const { data } = useGetTheTodoListApiQuery();
-
-  useEffect(() => {
-    console.log("KSL");
-  }, [data]);
 
   return (
     <div className="todo-list-wrapper">

@@ -5,7 +5,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 export const theTodoListApi = createApi({
-  reducerPath: "theMovieApi",
+  reducerPath: "theTodoListApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     getTheTodoListApi: builder.query({
